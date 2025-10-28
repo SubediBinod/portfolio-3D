@@ -47,7 +47,8 @@ import {
   weather,
   mini,
   summarizer,
-  demo
+  demo,
+  binod
 } from "../assets";
 import tilottamac from "../assets/company/tilottamac.ico";
 import tilottama from "../assets/company/tilottama.ico";
@@ -282,7 +283,7 @@ const personalInfo = {
   name: "Binod Subedi",
   fullName: "Binod Subedi",
   email: "bidhaksubedi77@gmail.com",
-  profileImage: "src/constants/binod.jpg",
+  profileImage: binod,
   role: "Java Backend & Full Stack Developer",
   about: `I'm a skilled software developer with experience in Java and
   JavaScript, with expertise in frameworks like React.js, Spring Boot etc. 

@@ -53,6 +53,7 @@ import translate from "./projects/translate.png";
 import weather from "./projects/weather-app.png";
 import mini from "./projects/mini.jpg";
 import summarizer from "./projects/doc-summaizer.png";
+import binod from "./binod.jpg";
 export {
   logo,
   C,
@@ -108,5 +109,6 @@ export {
   translate,
   weather,
   mini,
-  summarizer
+  summarizer,
+  binod
 };
