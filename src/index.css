@@ -1,0 +1,444 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+.hash-span {
+  margin-top: -100px;
+  padding-bottom: 100px;
+  display: block;
+}
+/* ...existing code... */
+
+/* Subtle background icons — reduced opacity/contrast and softer motion */
+.bg-tag-cloud {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+
+  /* tweakable global control */
+  --bg-tag-opacity: 0.16;   /* overall layer opacity (0 - 1) */
+  --bg-tag-saturation: 0.55; /* lower color saturation for readability */
+  --bg-tag-blur: 0.6px;     /* slight blur to soften edges */
+  --bg-tag-scale: 0.98;     /* slight global scale down */
+  opacity: var(--bg-tag-opacity);
+  transform: scale(var(--bg-tag-scale));
+}
+
+/* Each icon: desaturated, slightly blurred, low contrast and low z-impact */
+.bg-tag-cloud-icon {
+  position: absolute;
+  will-change: transform, opacity, filter;
+  display: block;
+  filter: grayscale(0.6) saturate(var(--bg-tag-saturation)) blur(var(--bg-tag-blur))
+          drop-shadow(0 6px 14px rgba(0, 0, 0, 0.18));
+  opacity: 0.88; /* base opacity multiplied by container opacity */
+  border-radius: 8px;
+  object-fit: contain;
+  transition: transform 300ms ease, opacity 300ms ease, filter 300ms ease;
+  animation-name: bgTagFloat;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  mix-blend-mode: normal; /* avoid unexpected blending with text */
+}
+
+/* Reduce motion amplitude and speed for readability */
+@keyframes bgTagFloat {
+  0% {
+    transform: translate(-50%, -50%) translateY(0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-10px) rotate(3deg) scale(1.02);
+  }
+  100% {
+    transform: translate(-50%, -50%) translateY(0) rotate(-1deg) scale(0.99);
+  }
+}
+
+/* Lower animation intensity and apply longer duration (gentler motion) */
+.bg-tag-cloud-icon {
+  animation-duration: 18s !important;
+}
+
+/* Further decrease visual weight for very small screens */
+@media (max-width: 1024px) {
+  .bg-tag-cloud {
+    --bg-tag-opacity: 0.12;
+    --bg-tag-saturation: 0.45;
+  }
+  .bg-tag-cloud-icon {
+    animation-duration: 22s !important;
+    filter: grayscale(0.7) saturate(0.45) blur(calc(var(--bg-tag-blur) + 0.6px));
+  }
+}
+
+/* Hide entirely on small mobile for best readability / perf */
+@media (max-width: 300px) {
+  .bg-tag-cloud {
+    display: none;
+  }
+}
+@media (max-width: 640px) {
+  .bg-tag-cloud {
+    /* much more subtle on phones to preserve readability */
+    --bg-tag-opacity: 0.06;
+    --bg-tag-saturation: 0.35;
+    --bg-tag-blur: 1.2px;
+    opacity: var(--bg-tag-opacity);
+    pointer-events: none;
+    transform: scale(0.98);
+  }
+
+  .bg-tag-cloud-icon {
+    /* smaller, slower, and more desaturated icons on phones */
+    animation-duration: 26s !important;
+    filter: grayscale(0.85) saturate(var(--bg-tag-saturation)) blur(var(--bg-tag-blur));
+    /* allow component's inline sizing to apply but clamp visually */
+    max-width: 46px !important;
+    max-height: 46px !important;
+    opacity: 0.9;
+  }
+}
+/* ensure main content remains above background */
+.main-foreground,
+.bg-hero-pattern,
+.app-foreground {
+  position: relative;
+  z-index: 10;
+}
+
+/* ...existing code... */
+.black-gradient {
+  background: #000000; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #434343,
+    #000000
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #434343,
+    #000000
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.violet-gradient {
+  background: #804dee;
+  background: linear-gradient(-90deg, #804dee 0%, rgba(60, 51, 80, 0) 100%);
+  background: -webkit-linear-gradient(
+    -90deg,
+    #804dee 0%,
+    rgba(60, 51, 80, 0) 100%
+  );
+}
+
+.green-pink-gradient {
+  background: "#00cea8";
+  background: linear-gradient(90.13deg, #00cea8 1.9%, #bf61ff 97.5%);
+  background: -webkit-linear-gradient(-90.13deg, #00cea8 1.9%, #bf61ff 97.5%);
+}
+
+.orange-text-gradient {
+  background: #f12711; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top,
+    #f12711,
+    #f5af19
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to top,
+    #f12711,
+    #f5af19
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.green-text-gradient {
+  background: #11998e; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top,
+    #11998e,
+    #38ef7d
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to top,
+    #11998e,
+    #38ef7d
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.blue-text-gradient {
+  /* background: -webkit-linear-gradient(#eee, #333); */
+  background: #56ccf2; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top,
+    #2f80ed,
+    #56ccf2
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to top,
+    #2f80ed,
+    #56ccf2
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* ...existing code... */
+
+/* Small-screen fix: prevent hero text from being overlapped by the 3D canvas.
+   Adds extra bottom space and brings the text container above the canvas. */
+@media screen and (max-width: 500px) {
+  /* add breathing room below the canvas so following content doesn't get covered */
+  .bg-hero-pattern {
+    padding-bottom: 300px; /* adjust value if you need more/less gap */
+  }
+
+  /* ensure the text block inside the hero sits above the canvas */
+  .bg-hero-pattern .max-w-7xl {
+    position: relative;
+    z-index: 20;
+  }
+
+  /* keep the canvas visually behind text and avoid accidental pointer capture on tiny screens */
+  .bg-hero-pattern canvas {
+    position: relative;
+    z-index: 0;
+    pointer-events: none; /* optional: allows taps to reach elements above the canvas */
+  }
+
+  /* small tweak for section spacing so content doesn't bump into canvas */
+  section {
+    padding-top: 1rem;
+  }
+}
+
+/* ...existing code... */
+
+/* ...existing code... */
+
+.background-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0; /* ensure behind main content */
+  pointer-events: none; /* allow clicks to pass through */
+}
+
+/* ensure canvas fills area */
+.background-canvas canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+/* make main content appear above the background */
+.main-foreground,
+.bg-hero-pattern,
+.relative-z-foreground {
+  position: relative;
+  z-index: 10;
+}
+
+
+/* on small screens reduce particle count/look */
+@media screen and (max-width: 480px) {
+  .background-canvas {
+    opacity: 0.9;
+  }
+}
+  
+.pink-text-gradient {
+  background: #ec008c; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top,
+    #ec008c,
+    #fc6767
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to top,
+    #ec008c,
+    #fc6767
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* canvas- styles */
+.canvas-loader {
+  font-size: 10px;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  position: relative;
+  text-indent: -9999em;
+  animation: mulShdSpin 1.1s infinite ease;
+  transform: translateZ(0);
+}
+/* ...existing code... */
+
+.section-container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  box-sizing: border-box;
+}
+
+/* picture container on the right with border and subtle shadow */
+.section__pic-container {
+  display: flex;
+  height: 400px;
+  width: 400px;
+  margin: auto 0;
+  border: none; /* no border */
+  border-radius: 25px;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06); /* optional lighter shadow */
+}
+
+/* image scales to fill container while keeping aspect */
+.about-pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Responsive adjustments for narrower screens */
+@media screen and (max-width: 1200px) {
+  .section-container {
+    display: block;
+  }
+  .arrow {
+    display: none;
+  }
+  section,
+  .section-container {
+    height: fit-content;
+  }
+  section {
+    margin: 0 5%;
+  }
+  .section__pic-container {
+    width: 275px;
+    height: 275px;
+    margin: 0 auto 2rem;
+  }
+}
+.details-container-certificate img {
+  max-width: 820px;
+  width: 100%;
+}
+
+/* indicators and nav */
+.prev,
+.next {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* small screens */
+@media screen and (max-width: 768px) {
+  .details-container-certificate img {
+    max-height: 55vh;
+  }
+  .title {
+    font-size: 1.9rem !important;
+  }
+}
+
+/* ...existing code... */
+
+@keyframes mulShdSpin {
+  0%,
+  100% {
+    box-shadow: 0em -2.6em 0em 0em #ffffff,
+      1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2),
+      2.5em 0em 0 0em rgba(255, 255, 255, 0.2),
+      1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2),
+      0em 2.5em 0 0em rgba(255, 255, 255, 0.2),
+      -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2),
+      -2.6em 0em 0 0em rgba(255, 255, 255, 0.5),
+      -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7);
+  }
+  12.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.7),
+      1.8em -1.8em 0 0em #ffffff, 2.5em 0em 0 0em rgba(255, 255, 255, 0.2),
+      1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2),
+      0em 2.5em 0 0em rgba(255, 255, 255, 0.2),
+      -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2),
+      -2.6em 0em 0 0em rgba(255, 255, 255, 0.2),
+      -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5);
+  }
+  25% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.5),
+      1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7), 2.5em 0em 0 0em #ffffff,
+      1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2),
+      0em 2.5em 0 0em rgba(255, 255, 255, 0.2),
+      -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2),
+      -2.6em 0em 0 0em rgba(255, 255, 255, 0.2),
+      -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  37.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2),
+      1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5),
+      2.5em 0em 0 0em rgba(255, 255, 255, 0.7), 1.75em 1.75em 0 0em #ffffff,
+      0em 2.5em 0 0em rgba(255, 255, 255, 0.2),
+      -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2),
+      -2.6em 0em 0 0em rgba(255, 255, 255, 0.2),
+      -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2),
+      1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2),
+      2.5em 0em 0 0em rgba(255, 255, 255, 0.5),
+      1.75em 1.75em 0 0em rgba(255, 255, 255, 0.7), 0em 2.5em 0 0em #ffffff,
+      -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2),
+      -2.6em 0em 0 0em rgba(255, 255, 255, 0.2),
+      -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  62.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2),
+      1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2),
+      2.5em 0em 0 0em rgba(255, 255, 255, 0.2),
+      1.75em 1.75em 0 0em rgba(255, 255, 255, 0.5),
+      0em 2.5em 0 0em rgba(255, 255, 255, 0.7), -1.8em 1.8em 0 0em #ffffff,
+      -2.6em 0em 0 0em rgba(255, 255, 255, 0.2),
+      -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  75% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2),
+      1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2),
+      2.5em 0em 0 0em rgba(255, 255, 255, 0.2),
+      1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2),
+      0em 2.5em 0 0em rgba(255, 255, 255, 0.5),
+      -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.7), -2.6em 0em 0 0em #ffffff,
+      -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  87.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2),
+      1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2),
+      2.5em 0em 0 0em rgba(255, 255, 255, 0.2),
+      1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2),
+      0em 2.5em 0 0em rgba(255, 255, 255, 0.2),
+      -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.5),
+      -2.6em 0em 0 0em rgba(255, 255, 255, 0.7), -1.8em -1.8em 0 0em #ffffff;
+  }
+}
