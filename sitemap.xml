@@ -1,4 +1,19 @@
-User-agent: *
-Allow: /
-Sitemap: https://binodsubedi15.com.np/sitemap.xml
-Host: binodsubedi15.com.np
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://binodsubedi15.com.np/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://binodsubedi15.com.np/about</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://binodsubedi15.com.np/work</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://binodsubedi15.com.np/contact</loc>
+    <priority>0.6</priority>
+  </url>
+</urlset>
