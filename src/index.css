@@ -206,7 +206,7 @@
 @media screen and (max-width: 500px) {
   /* add breathing room below the canvas so following content doesn't get covered */
   .bg-hero-pattern {
-    padding-bottom: 300px; /* adjust value if you need more/less gap */
+    padding-bottom: 50px; /* adjust value if you need more/less gap */
   }
 
   /* ensure the text block inside the hero sits above the canvas */
