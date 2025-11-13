@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { fadeIn, textVariant } from "../utils/motion";
@@ -37,19 +36,8 @@ const BlogCard = ({ index, post }) => {
 
             <div className="absolute top-3 right-3 flex gap-2">
               <div className="black-gradient w-9 h-9 rounded-full flex items-center justify-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-4 h-4 text-white"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="1.5"
-                    d="M14 3h7v7M10 14L21 3M21 3L10 14M3 21h18"
-                  />
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M14 3h7v7M10 14L21 3M21 3L10 14M3 21h18" />
                 </svg>
               </div>
             </div>
@@ -62,18 +50,13 @@ const BlogCard = ({ index, post }) => {
 
           <div className="mt-4 flex items-center justify-between">
             <small className="text-[12px] text-secondary">{post.date}</small>
-            {post.readTime && (
-              <small className="text-[12px] text-secondary">{post.readTime}</small>
-            )}
+            {post.readTime && <small className="text-[12px] text-secondary">{post.readTime}</small>}
           </div>
 
           {post.tags && post.tags.length > 0 && (
             <div className="mt-4 flex flex-wrap gap-2">
               {post.tags.map((t) => (
-                <span
-                  key={t}
-                  className="text-[12px] text-gray-300 bg-tertiary/40 px-3 py-1 rounded-full"
-                >
+                <span key={t} className="text-[12px] text-gray-300 bg-tertiary/40 px-3 py-1 rounded-full">
                   {t}
                 </span>
               ))}
@@ -86,9 +69,9 @@ const BlogCard = ({ index, post }) => {
 };
 
 const Blog = () => {
-  const location = useLocation();
+    const location = useLocation();
 
-  useEffect(() => {
+   useEffect(() => {
     if (location.pathname === "/blogs") {
       document.title = "Blog — Binod Subedi";
     }
@@ -96,35 +79,6 @@ const Blog = () => {
 
   return (
     <>
-      {/* Helmet for SEO */}
-      <Helmet>
-        <title>Binod Subedi — Blog | Portfolio</title>
-        <meta
-          name="description"
-          content="Read Binod Subedi's technical blogs: Spring Boot, Docker, RabbitMQ, and practical how-tos."
-        />
-        <link rel="canonical" href="https://binodsubedi15.com.np/#blogs" />
-
-        {/* Open Graph */}
-        <meta property="og:title" content="Binod Subedi — Technical Blog" />
-        <meta
-          property="og:description"
-          content="Read Binod Subedi's technical blogs on Spring Boot, Docker, RabbitMQ, and practical tutorials."
-        />
-        <meta property="og:url" content="https://binodsubedi15.com.np/#blogs" />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://binodsubedi15.com.np/og-image.jpg" />
-
-        {/* Twitter */}
-        <meta name="twitter:title" content="Binod Subedi — Technical Blog" />
-        <meta
-          name="twitter:description"
-          content="Read Binod Subedi's technical blogs on Spring Boot, Docker, RabbitMQ, and practical tutorials."
-        />
-        <meta name="twitter:image" content="https://binodsubedi15.com.np/og-image.jpg" />
-      </Helmet>
-
-      {/* Blog content */}
       <motion.div variants={textVariant()}>
         <p className={styles.sectionSubText}>My writings</p>
         <h2 className={styles.sectionHeadText}>Blog.</h2>
