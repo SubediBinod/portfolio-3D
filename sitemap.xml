@@ -9,7 +9,6 @@
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
   </url>
-  <!-- Example individual posts -->
   <url>
     <loc>https://binodsubedi15.com.np/blogs/spring-boot-properties-cheatsheet-index</loc>
     <priority>0.6</priority>
