@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Redirecting…</title>
+  <meta http-equiv="refresh" content="0; url=/" />
+</head>
+<body>
+  <script>
+    (function () {
+      // Load the app's index.html and replace current document so client router handles the path.
+      fetch('/index.html')
+        .then(function (res) { return res.text(); })
+        .then(function (html) {
+          document.open();
+          document.write(html);
+          document.close();
+        })
+        .catch(function () {
+          location.replace('/');
+        });
+    })();
+  </script>
+  <noscript>
+    JavaScript required — <a href="/">go to homepage</a>
+  </noscript>
+</body>
+</html>
