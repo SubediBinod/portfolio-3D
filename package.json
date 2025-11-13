@@ -1,6 +1,6 @@
 {
   "name": "portfolio",
- "homepage": "https://binodsubedi15.com.np",
+  "homepage": "https://binodsubedi15.com.np",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -20,6 +20,7 @@
     "react": "^18.2.0",
     "react-3d-cloud": "^1.0.7",
     "react-dom": "^18.2.0",
+    "react-helmet-async": "^2.0.5",
     "react-router-dom": "^6.14.2",
     "react-tilt": "^1.0.2",
     "react-vertical-timeline-component": "^3.6.0",
