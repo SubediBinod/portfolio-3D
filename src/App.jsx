@@ -10,6 +10,7 @@ import { StarsCanvas } from "./components/canvas";
 import HireMe from "./components/HireMe";
 import Certificates from "./components/Certificates";
 import {TagSphereBackground } from "./components/canvas";
+import Blog from "./components/Blog.jsx";
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
         <Tech />
         <Works />
         <Certificates />
+        <Blog />
         <div className="relative z-0">
           <Contact />
           { <StarsCanvas /> }

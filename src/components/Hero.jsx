@@ -26,9 +26,11 @@ const Hero = () => {
           </p>
         </div>
       </div>
-      <ComputersCanvas />
 
-      
+      {/* hide canvas on small screens to reduce lag */}
+      <div className="hidden sm:block">
+        <ComputersCanvas />
+      </div>
 
       <div className="absolute xs:bottom-2 bottom-12 w-full flex justify-center items-center">
         <a href="#about">

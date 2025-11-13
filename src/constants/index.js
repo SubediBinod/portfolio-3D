@@ -48,7 +48,10 @@ import {
   mini,
   summarizer,
   demo,
-  binod
+  binod,
+  facebook,
+  instaico,
+  whatsapp
 } from "../assets";
 import tilottamac from "../assets/company/tilottamac.ico";
 import tilottama from "../assets/company/tilottama.ico";
@@ -59,12 +62,16 @@ const navigationPaths = {
   about: "about",
   work: "work",
   contact: "contact",
+  blogs: "blogs", 
+
 };
 
 export const navLinks = [
   { id: navigationPaths.about, title: "About" },
   { id: navigationPaths.work, title: "Work" },
   { id: navigationPaths.contact, title: "Contact" },
+  { id: navigationPaths.blogs, title: "Blog" }, // added
+
 ];
 
 const services = [
@@ -298,8 +305,31 @@ const publicUrls = {
   socialProfiles: {
     linkedin: { title: "linkedin", link: "https://www.linkedin.com/in/binod-subedi-3238a7234/", icon: linkedIn },
     github: { title: "github", link: "https://github.com/SubediBinod", icon: github },
+    instagram: { title: "instagram", link: "https://www.instagram.com/_binod08?igsh=Ymp1eGV5YzRscXM1", icon: instaico },
+    facebook: { title: "facebook", link: "https://www.facebook.com/share/17JZX1AtHw/", icon:  facebook},
+    whatsapp: { title: "whatsapp", link: "https://wa.me/+9779709270186", icon: whatsapp },
+  
   },
 };
+export const blogPosts = [
+  {
+    slug: "spring-boot-properties-cheatsheet-index",
+    title: "Spring Boot Properties Cheatsheet",
+    date: "2025-10-01",
+    summary: "Quick reference for common Spring Boot properties.",
+    url: "https://subedibinod.github.io/spring-boot-properties-cheatsheet/index.html",
+    image: "/spring.png" // optional: small tile image placed in public/
+  },
+  {
+    slug: "docker-guide",
+    title: "Docker — Quick Commands & Examples",
+    date: "2025-11-01",
+    summary: "Docker commands and examples for building & running containers.",
+    url: "https://subedibinod.github.io/spring-boot-properties-cheatsheet/docker.html",
+    image: "/docker.png"
+  }
+];
+
 
 export {
   services,

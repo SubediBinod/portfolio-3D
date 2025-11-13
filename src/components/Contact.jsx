@@ -51,7 +51,7 @@ const Contact = () => {
         () => {
           setModalContent({
             title: "Success!",
-            message: "Thank you. I will get back to you as soon as possilbe.",
+            message: "Thank you. I will get back to you as soon as possible.",
             buttonText: "Ok",
           });
           setIsModalVisible(true);
@@ -81,34 +81,48 @@ const Contact = () => {
       <div className="xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden">
         <motion.div
           variants={slideIn("left", "tween", 0.2, 1)}
-          className="relative flex-[0.75] bg-black-100 p-8 rounded-2xl"
+          className="flex-[0.75] bg-black-100 p-8 rounded-2xl"
         >
-          <div className="flex items-center justify-end space-x-4 absolute top-8 right-4">
-            {Object.keys(publicUrls.socialProfiles).map((socialProfile) => {
-              const profile = publicUrls.socialProfiles[socialProfile];
-              return (
-                <div
-                  key={`social_${profile.title}`}
-                  onClick={() => window.open(profile.link, "_blank")}
-                  className="green-pink-gradient lg:w-10 lg:h-10 h-8 w-8 rounded-full flex justify-center items-center cursor-pointer hover:scale-110"
-                >
-                  <img
-                    src={profile.icon}
-                    alt={`social_${profile.title}`}
-                    className="w-4/6 h-4/6 object-contain"
-                  />
-                </div>
-              );
-            })}
-          </div>
-
           <p className={styles.sectionSubText}>Get in touch</p>
           <h3 className={styles.sectionHeadText}>Contact.</h3>
+
+          {/* Social icons row (non-overlapping) */}
+          <div className="flex items-center justify-end gap-3 mt-4 mb-6">
+            {publicUrls?.socialProfiles &&
+              Object.values(publicUrls.socialProfiles).map((profile) => (
+                <button
+                  key={profile.title}
+                  type="button"
+                  onClick={() => {
+                    if (profile?.link) window.open(profile.link, "_blank");
+                  }}
+                  className="green-pink-gradient lg:w-10 lg:h-10 h-9 w-9 rounded-full flex justify-center items-center cursor-pointer hover:scale-110"
+                  aria-label={profile.title}
+                >
+                  {profile?.icon ? (
+                    <img
+                      src={profile.icon}
+                      alt={profile.title}
+                      className="w-4/6 h-4/6 object-contain"
+                    />
+                  ) : (
+                    <svg
+                      className="w-4 h-4 text-white"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                    </svg>
+                  )}
+                </button>
+              ))}
+          </div>
 
           <form
             ref={formRef}
             onSubmit={handleSubmit}
-            className="mt-12 flex flex-col gap-8"
+            className="mt-6 flex flex-col gap-8"
           >
             <label className="flex flex-col">
               <span className="text-white font-medium mb-4">Your Name</span>
@@ -162,6 +176,7 @@ const Contact = () => {
           <EarthCanvas />
         </motion.div>
       </div>
+
       {isModalVisible && (
         <Modal
           title={modalContent.title}

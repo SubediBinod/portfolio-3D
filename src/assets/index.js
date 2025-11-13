@@ -54,6 +54,9 @@ import weather from "./projects/weather-app.png";
 import mini from "./projects/mini.jpg";
 import summarizer from "./projects/doc-summaizer.png";
 import binod from "./binod.jpg";
+import whatsapp from"./whatsapp.png"
+import instaico from "./instagram-ico.png"
+import facebook from "./facebook.png"
 export {
   logo,
   C,
@@ -110,5 +113,8 @@ export {
   weather,
   mini,
   summarizer,
-  binod
+  binod,
+  instaico,
+  facebook,
+  whatsapp
 };
