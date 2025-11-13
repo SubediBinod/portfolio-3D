@@ -4,24 +4,30 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Redirecting…</title>
-  <meta http-equiv="refresh" content="0; url=/" />
-</head>
-<body>
+  <meta name="robots" content="noindex,follow" />
   <script>
+    // GitHub Pages SPA redirect: convert path -> hash so the client router can handle it.
     (function () {
-      // Load the app's index.html and replace current document so client router handles the path.
-      fetch('/index.html')
-        .then(function (res) { return res.text(); })
-        .then(function (html) {
-          document.open();
-          document.write(html);
-          document.close();
-        })
-        .catch(function () {
-          location.replace('/');
-        });
+      try {
+        var path = window.location.pathname;
+        // keep root alone
+        if (path && path !== '/' && !path.includes('/.well-known')) {
+          // If path already includes index.html, normalize it
+          var normalized = path.replace(/\/index\.html$/, '') || '/';
+          // redirect to hash route (preserves original path)
+          window.location.replace('/#' + normalized);
+        } else {
+          // go to root
+          window.location.replace('/');
+        }
+      } catch (e) {
+        // fallback
+        window.location.replace('/');
+      }
     })();
   </script>
+</head>
+<body>
   <noscript>
     JavaScript required — <a href="/">go to homepage</a>
   </noscript>
