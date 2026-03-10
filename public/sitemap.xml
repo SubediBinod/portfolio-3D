@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://binodsubedi15.com.np/</loc>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://binodsubedi15.com.np/binod.jpg</image:loc>
+      <image:title>Binod Subedi profile photo</image:title>
+      <image:caption>Binod Subedi - Java Backend and Full Stack Developer</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://binodsubedi15.com.np/blogs</loc>

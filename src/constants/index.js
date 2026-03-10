@@ -78,7 +78,7 @@ const services = [
   { title: "Java Backend Developer (Spring Boot, Microservices, Cloud)", icon: backend },
   { title: "React Frontend Developer", icon: frontend },
   { title: "Database Designer (MySQL, PostgreSQL, MongoDB)", icon: database },
-  { title: "UI/UX & Graphic Designer (Figma, Canva)", icon: design },
+  { title: "UI/UX & Graphic Designer (Figma, Canva, Adobe Illustrator)", icon: design },
 ];
 
 
@@ -107,6 +107,29 @@ const technologies = [
 ];
 
 const experiences = [
+  {
+    title: "IT & System Engineer",
+    company_name: "First Choice Foods Limited",
+    company_website: "https://fcffoods.com/",
+    icon: "/fcf.ico",
+    iconBg: "#E6DEDD",
+    date: "Present",
+    points: [
+      "Manage day-to-day IT infrastructure and technical operations across all departments in user office environment.",
+      "Handle hardware and software troubleshooting both remotely and physically, resolving operational glitches quickly.",
+      "Manage on-premises network operations using MikroTik, coordinate with ISPs, and support PCs, laptops, printers, and scanners.",
+      "Set up an internal Ubuntu LTS server on a repurposed Dell PC, enable secure private remote access through Tailscale VPN, and maintain server health.",
+      "Build and host internal applications (potato inventory, storekeeping inventory, chamber inventory) using React, Spring Boot, JPA, MySQL, and JWT, improving reporting speed and reducing manual paperwork.",
+      "Deploy application updates manually, perform routine server maintenance, and automate scheduled source backups to GitHub via cron.",
+      "Provide remote support using AnyDesk, Tailscale, and SSH for administration and issue resolution.",
+      "Manage social media operations (Facebook, Instagram, TikTok), including content posting, creative planning, and engagement support.",
+      "Lead creative design work for business and branding assets such as ID cards, calendars, diaries, banners, flex prints, social media posts, and packaging materials using Illustrator and Photoshop.",
+      "Train and guide staff on the use of internally developed software and digital workflows."
+    ],
+  },
+];
+
+const education = [
   {
     title: "B.Tech-Computer Science and Engineering",
     company_name: "Guru Nanak Institute Of Technology-Hyderabad,Telangana(India)",
@@ -335,6 +358,7 @@ export {
   services,
   technologies,
   experiences,
+  education,
   projects,
   certificates,
   navigationPaths,

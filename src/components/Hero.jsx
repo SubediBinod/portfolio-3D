@@ -1,6 +1,6 @@
 import React from "react";
 import { styles } from "../styles";
-import { ComputersCanvas } from "./canvas";
+// import { ComputersCanvas } from "./canvas";
 import { motion } from "framer-motion";
 import { personalInfo } from "../constants";
 
@@ -28,9 +28,9 @@ const Hero = () => {
       </div>
 
       {/* hide canvas on small screens to reduce lag */}
-      <div className="hidden sm:block">
+      {/* <div className="hidden sm:block">
         <ComputersCanvas />
-      </div>
+      </div> */}
 
       <div className="absolute xs:bottom-2 bottom-12 w-full flex justify-center items-center">
         <a href="#about">
