@@ -1,4 +1,6 @@
 import {
+  farmer,
+  store,
   design,
   mobile,
   backend,
@@ -51,7 +53,8 @@ import {
   binod,
   facebook,
   instaico,
-  whatsapp
+  whatsapp,
+  potato
 } from "../assets";
 import tilottamac from "../assets/company/tilottamac.ico";
 import tilottama from "../assets/company/tilottama.ico";
@@ -172,134 +175,123 @@ const education = [
 
 const projects = [
   {
+    name: "Finished Goods Warehouse Management System",
+    description:
+      "A production-grade warehouse inventory and pallet tracking platform developed for First Choice Foods Limited to manage finished goods storage, chamber occupancy, pallet transfers, dispatch workflows, audit logs, and PDF reporting across multiple cold storage chambers.",
+    tags: [
+      { name: "React", color: "green-text-gradient" },
+      { name: "Spring Boot", color: "blue-text-gradient" },
+      { name: "JPA", color: "pink-text-gradient" },
+      { name: "JWT", color: "orange-text-gradient" },
+      { name: "MySQL", color: "green-text-gradient" },
+      { name: "Recharts", color: "blue-text-gradient" },
+      { name: "Tailwind CSS", color: "pink-text-gradient" },
+    ],
+    image: store,
+    hosted_link:
+      "https://github.com/SubediBinod/FCF-Finished-Goods-Warehouse-Management-System",
+  },
+
+  {
+    name: "Potato Inventory Management System",
+    description:
+      "An enterprise agricultural inventory system developed for First Choice Foods Limited to manage seasonal potato procurement, lot tracking, grading, dispatch operations, stock analytics, returns handling, and audit-based reporting workflows.",
+    tags: [
+      { name: "React", color: "green-text-gradient" },
+      { name: "Spring Boot", color: "blue-text-gradient" },
+      { name: "REST API", color: "orange-text-gradient" },
+      { name: "JWT", color: "pink-text-gradient" },
+      { name: "MySQL", color: "green-text-gradient" },
+      { name: "Tailwind CSS", color: "blue-text-gradient" },
+    ],
+    image: potato,
+    hosted_link:
+      "https://github.com/SubediBinod/FCF-Potato-Inventory-Management-System",
+  },
+
+  {
+    name: "Farmer Ledger Management System",
+    description:
+      "A farmer procurement and financial ledger platform built for First Choice Foods Limited to manage farmer registration, cultivation tracking, seed distribution, potato procurement records, payment settlements, and balance calculations.",
+    tags: [
+      { name: "React", color: "green-text-gradient" },
+      { name: "Spring Boot", color: "blue-text-gradient" },
+      { name: "JPA", color: "pink-text-gradient" },
+      { name: "JWT", color: "orange-text-gradient" },
+      { name: "MySQL", color: "green-text-gradient" },
+      { name: "Tailwind CSS", color: "blue-text-gradient" },
+    ],
+    image: farmer,
+    hosted_link:
+      "https://github.com/SubediBinod/FCF-Farmer-Ledger-Management-System",
+  },
+
+  {
     name: "Intelligent Multimedia Summarizer",
     description:
-      "An AI-powered platform that automatically summarizes multimedia content and provides personalized learning recommendations, integrating NLP and machine learning models for smarter study assistance.",
+      "An AI-powered learning platform that summarizes multimedia content and provides personalized learning recommendations using NLP and machine learning techniques for smarter educational assistance.",
     tags: [
-      { name: "SpringBoot", color: "blue-text-gradient" },
-      { name: "Python", color: "green-text-gradient" },
-      { name: "Java", color: "pink-text-gradient" },
-      { name: "JavaScript", color: "orange-text-gradient" },
       { name: "React", color: "green-text-gradient" },
+      { name: "Spring Boot", color: "blue-text-gradient" },
+      { name: "Python", color: "green-text-gradient" },
+      { name: "Machine Learning", color: "pink-text-gradient" },
+      { name: "NLP", color: "orange-text-gradient" },
       { name: "MySQL", color: "blue-text-gradient" },
     ],
     image: summarizer,
     hosted_link:
       "https://github.com/SubediBinod/intelligent-multimedia-summarizer",
   },
-  // {
-  //   name: "AI Powered Fitness App",
-  //   description:
-  //     "A full-stack Spring Boot and React-based fitness application that leverages AI to generate personalized workout and diet plans based on user preferences, lifestyle, and goals.",
-  //   tags: [
-  //     { name: "React", color: "green-text-gradient" },
-  //     { name: "SpringBoot", color: "blue-text-gradient" },
-  //     { name: "Java", color: "pink-text-gradient" },
-  //     { name: "MySQL", color: "green-text-gradient" },
-  //   ],
-  //   image: demo,
-  //   hosted_link: "https://github.com/SubediBinod/AI-Powered-Fitness-App",
-  // },
+
   {
     name: "Smart Exam Duty Allocation System",
     description:
-      "An intelligent system to automate invigilation duty assignments for faculty members based on availability and constraints, improving fairness and efficiency in exam scheduling.",
+      "A scheduling and allocation platform designed to automate faculty invigilation assignments based on availability and allocation constraints, improving fairness and operational efficiency during examinations.",
     tags: [
       { name: "Java", color: "blue-text-gradient" },
-      { name: "MySQL", color: "green-text-gradient" },
-      { name: "HTML", color: "pink-text-gradient" },
-      { name: "CSS", color: "blue-text-gradient" },
-      { name: "JavaScript", color: "orange-text-gradient" },
+      { name: "Servlets", color: "green-text-gradient" },
+      { name: "JSP", color: "pink-text-gradient" },
+      { name: "MySQL", color: "orange-text-gradient" },
+      { name: "JavaScript", color: "green-text-gradient" },
     ],
     image: mini,
     hosted_link:
       "https://github.com/SubediBinod/Exam-Duty-Allocation-System",
   },
-  {
-    name: "Weather App",
-    description:
-      "A responsive weather application that displays real-time weather information using the OpenWeatherMap API. Users can search by city or allow location access for instant updates.",
-    tags: [
-      { name: "HTML", color: "blue-text-gradient" },
-      { name: "CSS", color: "green-text-gradient" },
-      { name: "JavaScript", color: "orange-text-gradient" },
-      { name: "API", color: "pink-text-gradient" },
-    ],
-    image: weather,
-    hosted_link: "https://github.com/SubediBinod/weather-app",
-    live_demo: "https://subedibinod.github.io/weather-app/",
-  },
+
   {
     name: "InfoBuddy Chatbot",
     description:
-      "An interactive chatbot powered by Spring Boot and Gemini AI API. It allows real-time intelligent conversations through a simple HTML, CSS, and JavaScript frontend connected to a Spring backend.",
+      "An AI-integrated chatbot application powered by Spring Boot and Gemini AI API, enabling intelligent real-time conversations through a responsive web interface.",
     tags: [
-      { name: "SpringBoot", color: "blue-text-gradient" },
-      { name: "HTML", color: "green-text-gradient" },
-      { name: "CSS", color: "pink-text-gradient" },
-      { name: "JavaScript", color: "orange-text-gradient" },
+      { name: "Spring Boot", color: "blue-text-gradient" },
       { name: "Gemini AI", color: "green-text-gradient" },
+      { name: "JavaScript", color: "orange-text-gradient" },
+      { name: "HTML", color: "pink-text-gradient" },
+      { name: "CSS", color: "blue-text-gradient" },
     ],
     image: chatbot,
-    hosted_link: "https://github.com/SubediBinod/SpringBoot--chatbot",
+    hosted_link:
+      "https://github.com/SubediBinod/SpringBoot--chatbot",
   },
-  {
-    name: "Instagram Frontend Clone",
-    description:
-      "A clean and responsive frontend clone of Instagram built using HTML and CSS. It mimics the layout and design of the original app, great for practicing frontend fundamentals.",
-    tags: [
-      { name: "HTML", color: "blue-text-gradient" },
-      { name: "CSS", color: "green-text-gradient" },
-    ],
-    image: insta,
-    hosted_link: "https://github.com/SubediBinod/insta-clone",
-    live_demo: "https://subedibinod.github.io/insta-clone/",
-  },
+
   {
     name: "Language Translator",
     description:
-      "A modern translation web app with text-to-speech, copy, and swap functionalities. It uses translation APIs to provide multilingual support with a responsive dark-themed UI.",
+      "A multilingual translation web application with text-to-speech, copy, and language swap functionality using translation APIs and a responsive modern interface.",
     tags: [
+      { name: "JavaScript", color: "orange-text-gradient" },
+      { name: "API Integration", color: "pink-text-gradient" },
       { name: "HTML", color: "blue-text-gradient" },
       { name: "CSS", color: "green-text-gradient" },
-      { name: "JavaScript", color: "orange-text-gradient" },
-      { name: "API", color: "pink-text-gradient" },
     ],
     image: translate,
-    hosted_link: "https://github.com/SubediBinod/Language-Translator",
-    live_demo: "https://subedibinod.github.io/Language-Translator/",
+    hosted_link:
+      "https://github.com/SubediBinod/Language-Translator",
+    live_demo:
+      "https://subedibinod.github.io/Language-Translator/",
   },
-  {
-    name: "Random Quotes Generator",
-    description:
-      "A minimal JavaScript-based app that fetches random quotes from an API and displays them dynamically. Users can click to generate new quotes for inspiration or motivation.",
-    tags: [
-      { name: "HTML", color: "blue-text-gradient" },
-      { name: "CSS", color: "green-text-gradient" },
-      { name: "JavaScript", color: "orange-text-gradient" },
-      { name: "API", color: "pink-text-gradient" },
-    ],
-    image: quote,
-    hosted_link: "https://github.com/SubediBinod/Random-Quotes-using-api",
-    live_demo: "https://subedibinod.github.io/Random-Quotes-using-api/",
-  },
-//   {
-//   name: "Facial Recognition Login System",
-//   description:
-//     "A React-based facial recognition login system allowing secure authentication using face detection instead of traditional credentials.",
-//   tags: [
-//     { name: "React", color: "green-text-gradient" },
-//     { name: "Face-api.js", color: "pink-text-gradient" },
-//     { name: "JavaScript", color: "orange-text-gradient" },
-//     { name: "API Integration", color: "blue-text-gradient" },
-//   ],
-//   image: faceRecognition, // import your screenshot or placeholder from assets
-//   hosted_link: "https://github.com/SubediBinod/Face-Recognition-React",
-//   live_demo: "", // add live link here once hosted
-// },
-
 ];
-
 const certificates = [
   { id: "certificate-1", title: "Department Second Topper", src: cert1 },
   { id: "certificate-2", title: "Java Full Stack", src: cert2 },

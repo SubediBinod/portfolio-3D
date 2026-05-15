@@ -57,7 +57,13 @@ import binod from "./binod.jpg";
 import whatsapp from"./whatsapp.png"
 import instaico from "./instagram-ico.png"
 import facebook from "./facebook.png"
+import store from "./projects/store.png"
+import potato from "./projects/potato.png"
+import farmer from "./projects/farmer.png"
 export {
+  farmer,
+  potato,
+  store,
   logo,
   C,
   backend,
