@@ -3,7 +3,7 @@ import SectionWrapper from "../hoc/SectionWrapper";
 import { motion } from "framer-motion";
 import { slideIn } from "../utils/motion";
 import { styles } from "../styles";
-import { EarthCanvas } from "./canvas";
+import { EarthCanvas, LazyMount } from "./canvas";
 import emailjs from "@emailjs/browser";
 import { personalInfo, publicUrls } from "../constants";
 import Modal from "./Modal";
@@ -92,7 +92,7 @@ const Contact = () => {
 
   return (
     <>
-      <div className="xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden">
+      <div className="xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden xl:items-stretch">
         <motion.div
           variants={slideIn("left", "tween", 0.2, 1)}
           className="flex-[0.75] bg-black-100 p-8 rounded-2xl"
@@ -146,7 +146,7 @@ const Contact = () => {
                 value={form.name}
                 onChange={handleChange}
                 placeholder="What's your good name?"
-                className="bg-tertiary py-4 px-6 text-white placeholder:text-secondary rounded-lg outline-none border-none font-medium"
+                className="bg-tertiary py-4 px-6 text-white placeholder:text-secondary rounded-lg outline-none border border-white/5 focus:border-[#915eff]/50 focus:ring-2 focus:ring-[#915eff]/10 focus:shadow-[0_0_15px_rgba(145,94,255,0.15)] transition-all duration-300 font-medium"
               />
             </label>
 
@@ -158,7 +158,7 @@ const Contact = () => {
                 value={form.email}
                 onChange={handleChange}
                 placeholder="What's your web address?"
-                className="bg-tertiary py-4 px-6 text-white placeholder:text-secondary rounded-lg outline-none border-none font-medium"
+                className="bg-tertiary py-4 px-6 text-white placeholder:text-secondary rounded-lg outline-none border border-white/5 focus:border-[#915eff]/50 focus:ring-2 focus:ring-[#915eff]/10 focus:shadow-[0_0_15px_rgba(145,94,255,0.15)] transition-all duration-300 font-medium"
               />
             </label>
 
@@ -170,7 +170,7 @@ const Contact = () => {
                 value={form.message}
                 onChange={handleChange}
                 placeholder="What's you want to say?"
-                className="bg-tertiary py-4 px-6 text-white placeholder:text-secondary rounded-lg outline-none border-none font-medium"
+                className="bg-tertiary py-4 px-6 text-white placeholder:text-secondary rounded-lg outline-none border border-white/5 focus:border-[#915eff]/50 focus:ring-2 focus:ring-[#915eff]/10 focus:shadow-[0_0_15px_rgba(145,94,255,0.15)] transition-all duration-300 font-medium"
               />
             </label>
 
@@ -185,9 +185,11 @@ const Contact = () => {
 
         <motion.div
           variants={slideIn("right", "tween", 0.2, 1)}
-          className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px]"
+          className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px] flex justify-center items-center xl:self-stretch"
         >
-          <EarthCanvas />
+          <LazyMount className="w-full h-full max-w-[450px] max-h-[450px] aspect-square">
+            <EarthCanvas />
+          </LazyMount>
         </motion.div>
       </div>
 

@@ -1,5 +1,69 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
+:root {
+  --bg-primary: #050816;
+  --text-secondary: #aaa6c3;
+  --bg-tertiary: #151030;
+  --bg-black-100: #100d25;
+  --bg-black-200: #090325;
+  --text-white-100: #f3f3f3;
+  --bg-electric-purple: #915eff;
+  color-scheme: dark;
+}
+
+.light-theme {
+  --bg-primary: #f8fafc;
+  --text-secondary: #475569;
+  --bg-tertiary: #ffffff;
+  --bg-black-100: #f1f5f9;
+  --bg-black-200: #e2e8f0;
+  --text-white-100: #0f172a;
+  --bg-electric-purple: #7c3aed;
+  color-scheme: light;
+}
+
+/* Global Light-Theme Specific Inversions */
+.light-theme .text-white,
+.light-theme .text-white-100,
+.light-theme h1,
+.light-theme h2,
+.light-theme h3,
+.light-theme h4,
+.light-theme h5,
+.light-theme h6 {
+  color: #0f172a !important;
+}
+
+.light-theme .text-secondary {
+  color: #475569 !important;
+}
+
+.light-theme .bg-tertiary {
+  background-color: #ffffff !important;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.light-theme .bg-black-100 {
+  background-color: #f1f5f9 !important;
+}
+
+.light-theme .bg-black-200 {
+  background-color: #e2e8f0 !important;
+}
+
+/* Ensure timeline element text is readable in light theme */
+.light-theme .vertical-timeline-element-content {
+  background-color: #ffffff !important;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04) !important;
+}
+
+.light-theme .vertical-timeline-element-content h3,
+.light-theme .vertical-timeline-element-content p,
+.light-theme .vertical-timeline-element-content li {
+  color: #0f172a !important;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,7 +74,6 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
-  color-scheme: dark;
 }
 
 .hash-span {
@@ -21,97 +84,7 @@
 /* ...existing code... */
 
 /* Subtle background icons — reduced opacity/contrast and softer motion */
-.bg-tag-cloud {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
 
-  /* tweakable global control */
-  --bg-tag-opacity: 0.16;   /* overall layer opacity (0 - 1) */
-  --bg-tag-saturation: 0.55; /* lower color saturation for readability */
-  --bg-tag-blur: 0.6px;     /* slight blur to soften edges */
-  --bg-tag-scale: 0.98;     /* slight global scale down */
-  opacity: var(--bg-tag-opacity);
-  transform: scale(var(--bg-tag-scale));
-}
-
-/* Each icon: desaturated, slightly blurred, low contrast and low z-impact */
-.bg-tag-cloud-icon {
-  position: absolute;
-  will-change: transform, opacity, filter;
-  display: block;
-  filter: grayscale(0.6) saturate(var(--bg-tag-saturation)) blur(var(--bg-tag-blur))
-          drop-shadow(0 6px 14px rgba(0, 0, 0, 0.18));
-  opacity: 0.88; /* base opacity multiplied by container opacity */
-  border-radius: 8px;
-  object-fit: contain;
-  transition: transform 300ms ease, opacity 300ms ease, filter 300ms ease;
-  animation-name: bgTagFloat;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  mix-blend-mode: normal; /* avoid unexpected blending with text */
-}
-
-/* Reduce motion amplitude and speed for readability */
-@keyframes bgTagFloat {
-  0% {
-    transform: translate(-50%, -50%) translateY(0) rotate(0deg) scale(1);
-  }
-  50% {
-    transform: translate(-50%, -50%) translateY(-10px) rotate(3deg) scale(1.02);
-  }
-  100% {
-    transform: translate(-50%, -50%) translateY(0) rotate(-1deg) scale(0.99);
-  }
-}
-
-/* Lower animation intensity and apply longer duration (gentler motion) */
-.bg-tag-cloud-icon {
-  animation-duration: 18s !important;
-}
-
-/* Further decrease visual weight for very small screens */
-@media (max-width: 1024px) {
-  .bg-tag-cloud {
-    --bg-tag-opacity: 0.12;
-    --bg-tag-saturation: 0.45;
-  }
-  .bg-tag-cloud-icon {
-    animation-duration: 22s !important;
-    filter: grayscale(0.7) saturate(0.45) blur(calc(var(--bg-tag-blur) + 0.6px));
-  }
-}
-
-/* Hide entirely on small mobile for best readability / perf */
-@media (max-width: 300px) {
-  .bg-tag-cloud {
-    display: none;
-  }
-}
-@media (max-width: 640px) {
-  .bg-tag-cloud {
-    /* much more subtle on phones to preserve readability */
-    --bg-tag-opacity: 0.06;
-    --bg-tag-saturation: 0.35;
-    --bg-tag-blur: 1.2px;
-    opacity: var(--bg-tag-opacity);
-    pointer-events: none;
-    transform: scale(0.98);
-  }
-
-  .bg-tag-cloud-icon {
-    /* smaller, slower, and more desaturated icons on phones */
-    animation-duration: 26s !important;
-    filter: grayscale(0.85) saturate(var(--bg-tag-saturation)) blur(var(--bg-tag-blur));
-    /* allow component's inline sizing to apply but clamp visually */
-    max-width: 46px !important;
-    max-height: 46px !important;
-    opacity: 0.9;
-  }
-}
 /* ensure main content remains above background */
 .main-foreground,
 .bg-hero-pattern,
@@ -442,3 +415,11 @@
       -2.6em 0em 0 0em rgba(255, 255, 255, 0.7), -1.8em -1.8em 0 0em #ffffff;
   }
 }
+
+/* Optimize touch interaction on mobile to prevent canvas touch events from blocking vertical page scrolling */
+@media screen and (max-width: 768px) {
+  canvas {
+    touch-action: pan-y !important;
+  }
+}
+

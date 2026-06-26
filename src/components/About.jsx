@@ -3,31 +3,25 @@ import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { fadeIn, textVariant } from "../utils/motion";
 import { personalInfo, navigationPaths, services } from "../constants";
-import { Tilt } from "react-tilt";
 import { SectionWrapper } from "../hoc";
 
 const ServiceCard = ({ index, title, icon }) => {
   return (
-    <Tilt
-      className="xs:w-[250px] w-full"
-      options={{ max: 45, scale: 1, speed: 450 }}
+    <motion.div
+      variants={fadeIn("right", "spring", index * 0.5, 0.75)}
+      className="xs:w-[250px] w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card transition-all duration-300 hover:-translate-y-2"
     >
-      <motion.div
-        variants={fadeIn("right", "spring", index * 0.5, 0.75)}
-        className="w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card"
-      >
-        <div className="bg-tertiary rounded-[20px] min-h-[280px] py-5 px-12 flex flex-col justify-evenly items-center">
-          <img
-            src={icon}
-            alt="web-developemnt"
-            className="w-16 h-16 object-contain"
-          />
-          <h3 className="text-white text-[20px] font-bold text-center">
-            {title}
-          </h3>
-        </div>
-      </motion.div>
-    </Tilt>
+      <div className="bg-tertiary rounded-[20px] min-h-[280px] py-5 px-12 flex flex-col justify-evenly items-center">
+        <img
+          src={icon}
+          alt="web-developemnt"
+          className="w-16 h-16 object-contain"
+        />
+        <h3 className="text-white text-[20px] font-bold text-center">
+          {title}
+        </h3>
+      </div>
+    </motion.div>
   );
 };
 

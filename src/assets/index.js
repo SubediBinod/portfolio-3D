@@ -54,13 +54,15 @@ import weather from "./projects/weather-app.png";
 import mini from "./projects/mini.jpg";
 import summarizer from "./projects/doc-summaizer.png";
 import binod from "./binod.jpg";
-import whatsapp from"./whatsapp.png"
+import whatsapp from "./whatsapp.png"
 import instaico from "./instagram-ico.png"
 import facebook from "./facebook.png"
 import store from "./projects/store.png"
 import potato from "./projects/potato.png"
 import farmer from "./projects/farmer.png"
+import fcf from "../fcf.ico"
 export {
+  fcf,
   farmer,
   potato,
   store,

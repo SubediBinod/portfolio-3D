@@ -17,6 +17,12 @@ const Navbar = () => {
   const location = useLocation();
 
   useEffect(() => {
+    if (location.pathname === "/services") {
+      setActive("Services");
+    }
+  }, [location.pathname]);
+
+  useEffect(() => {
     const handleScroll = () => {
       if (location.pathname !== "/") {
         setShowHamburger(true);
@@ -49,14 +55,13 @@ const Navbar = () => {
             setToggle(false);
           }}
         >
-          <img src={logo} alt="logo" className="w-9 h-9 object-contain" />
           <p className="text-white text-[18px] font-bold cursor-pointer flex">
             {personalInfo.name} &nbsp;
             <span className="lg:block hidden">| {personalInfo.role}</span>
           </p>
         </Link>
 
-        <ul className="list-none hidden sm:flex flex-row gap-10">
+        <ul className="list-none hidden sm:flex flex-row gap-10 items-center">
           {navLinks.map((link) => (
             <li
               key={link.id}
@@ -65,9 +70,19 @@ const Navbar = () => {
               } text-[18px] font-medium cursor-pointer hover:text-white`}
               onClick={() => setActive(link.title)}
             >
-              <a href={`#${link.id}`}>{link.title}</a>
+              <a href={location.pathname === "/" ? `#${link.id}` : `/#${link.id}`}>{link.title}</a>
             </li>
           ))}
+
+          {/* Dedicated Services Page Link */}
+          <li
+            className={`${
+              active === "Services" ? "text-white" : "text-secondary"
+            } text-[18px] font-medium cursor-pointer hover:text-white`}
+            onClick={() => setActive("Services")}
+          >
+            <Link to="/services">Services</Link>
+          </li>
 
           <li className={`text-secondary text-[18px] font-medium cursor-pointer hover:text-white`}>
             <a
@@ -109,7 +124,6 @@ const Navbar = () => {
               <div className="w-full">
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-2">
-                    <img src={logo} alt="logo" className="w-8 h-8 rounded-md" />
                     <div>
                       <p className="text-white text-sm font-semibold leading-tight">
                         {personalInfo.name}
@@ -131,7 +145,7 @@ const Navbar = () => {
                   {navLinks.map((link) => (
                     <li key={link.id}>
                       <a
-                        href={`#${link.id}`}
+                        href={location.pathname === "/" ? `#${link.id}` : `/#${link.id}`}
                         onClick={() => {
                           setActive(link.title);
                           setToggle(false);
@@ -144,6 +158,25 @@ const Navbar = () => {
                       </a>
                     </li>
                   ))}
+
+                  {/* Dedicated Services Page Link (Mobile) */}
+                  <li>
+                    <Link
+                      to="/services"
+                      onClick={() => {
+                        setActive("Services");
+                        setToggle(false);
+                      }}
+                      className={`block px-3 py-2 rounded-md text-[16px] font-medium transition-colors ${
+                        active === "Services"
+                          ? "text-white bg-white/5"
+                          : "text-gray-100 hover:bg-white/5 hover:text-white"
+                      }`}
+                      role="menuitem"
+                    >
+                      Services
+                    </Link>
+                  </li>
 
                   <li>
                     <a
