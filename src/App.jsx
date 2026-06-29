@@ -7,8 +7,7 @@ import Tech from "./components/Tech";
 import Works from "./components/Works";
 import Contact from "./components/Contact";
 import { StarsCanvas, LazyMount } from "./components/canvas";
-import HireMe from "./components/HireMe";
-import Collaborate from "./components/Collaborate";
+import ConnectWidget from "./components/ConnectWidget";
 import Certificates from "./components/Certificates";
 import Blog from "./components/Blog.jsx";
 import ServicesPage from "./components/ServicesPage";
@@ -42,8 +41,7 @@ const App = () => {
           <Route path="/" element={<MainContent />} />
           <Route path="/services" element={<ServicesPage />} />
         </Routes>
-        <HireMe />
-        <Collaborate />
+        <ConnectWidget />
       </div>
     </BrowserRouter>
   );

@@ -79,9 +79,9 @@ export const navLinks = [
 
 const services = [
   { title: "Custom Software & SaaS Development (Spring Boot, React, Multi-tenant, Bots)", icon: backend },
-  { title: "End-to-End Web Dev, Deployment & Cloud Hosting (AWS, Nginx, Docker)", icon: frontend },
-  { title: "Digital Marketing & Ads Management (Google, Meta, LinkedIn Ads)", icon: database },
-  { title: "Social Media Management & Branding Design (Illustrator, Photoshop, Canva)", icon: design },
+  { title: "API & Database Systems (Java, Spring Boot, SQL, REST APIs)", icon: database },
+  { title: "IT Infrastructure & System Administration (Linux, MikroTik, Networking)", icon: creator },
+  { title: "Digital Marketing & Ads Management (Google, Meta, TikTok, LinkedIn Ads)", icon: web },
 ];
 
 
@@ -306,8 +306,8 @@ const personalInfo = {
   fullName: "Binod Subedi",
   email: "bidhaksubedi77@gmail.com",
   profileImage: binod,
-  role: "Software Developer & Digital Marketing Specialist",
-  about: `I'm a versatile software developer and digital marketer. I specialize in building custom backend systems, multi-tenant SaaS platforms, automation bots, and responsive web applications using Spring Boot, React, and MySQL. Alongside code, I design CI/CD pipelines with GitHub Actions, work with basic container orchestration using Kubernetes (K8s), configure cloud hosting (AWS EC2, Nginx, Docker, Ubuntu), and run optimized lead-generation campaigns via Google, Meta, and LinkedIn Ads, offering businesses a complete growth solution from architecture to marketing.`,
+  role: "Java Backend Developer",
+  about: `I'm a Java backend developer and computer engineer, currently working as an IT & System Engineer. I specialize in building custom backend systems, robust APIs, multi-tenant SaaS platforms, automation bots, and responsive web applications using Java, Spring Boot, React, and MySQL. Alongside development, I manage IT infrastructure, configure cloud networks (AWS EC2, Nginx, Docker), and set up automated CI/CD pipelines to deliver end-to-end engineering solutions.`,
   projectsIntro: `Following projects showcase my skills and experience through real-world examples.
 Each project is briefly described with live demos and reflects my ability to work with
 different technologies and manage projects effectively.`,

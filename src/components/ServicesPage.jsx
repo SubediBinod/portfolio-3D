@@ -61,7 +61,7 @@ const ServiceDetailCard = ({ title, category, description, features, techStack, 
 
 const ServicesPage = () => {
   useEffect(() => {
-    document.title = "Services | Binod Subedi — Software Development & Digital Marketing";
+    document.title = "Services | Binod Subedi — Software Development & Systems Engineering";
     window.scrollTo(0, 0);
   }, []);
 
@@ -110,44 +110,45 @@ const ServicesPage = () => {
       bgGradient: "black-gradient"
     },
     {
-      title: "Website Performance & SEO Optimization",
-      category: "SEO & Performance",
-      description: "Optimizing codebases and system architectures to load instantly, achieve peak Google PageSpeed metrics, and rank high on search engines.",
-      features: [
-        "Core Web Vitals and Google PageSpeed audits and fixes.",
-        "On-page SEO optimization: Meta tags, semantic HTML, and accessibility.",
-        "Structured data schema integration (JSON-LD) for rich search snippets.",
-        "Asset minification, lazy loading implementation, and image compression.",
-        "Responsive cross-browser responsiveness tuning."
-      ],
-      techStack: ["Google PageSpeed", "SEO Audits", "Schema markup", "Asset Optimization", "LazyLoad"],
-      bgGradient: "green-pink-gradient"
-    },
-    {
       title: "Digital Marketing & Ads Management",
       category: "Growth & Traffic",
       description: "Driving hyper-targeted leads and sales using structured paid ads. Setting up conversion funnels and optimizing acquisition costs.",
       features: [
-        "B2B professional lead generation using LinkedIn Ads.",
         "High-intent Search Engine Marketing (SEM) on Google Ads.",
-        "Social branding and lead ads on Meta (Facebook & Instagram).",
-        "Full conversions tracking pixel integration and optimization.",
+        "Social media ads setup and optimization on Meta (Facebook & Instagram) and TikTok.",
+        "Professional B2B lead generation using LinkedIn Ads.",
+        "Full conversion tracking pixel integration (Google Tag Manager, Meta Pixel).",
         "A/B campaign analytics testing and budget allocation."
       ],
-      techStack: ["Google Ads", "Meta Ads", "LinkedIn Ads", "Conversion Pixels", "A/B Testing"],
+      techStack: ["Google Ads", "Meta Ads", "TikTok Ads", "LinkedIn Ads", "Conversion Pixels", "A/B Testing"],
+      bgGradient: "green-pink-gradient"
+    },
+    {
+      title: "API Development & System Integrations",
+      category: "Backend Engineering",
+      description: "Designing and developing scalable, secure, and clean APIs. Specialize in microservice communication, token authentication, and data integrity.",
+      features: [
+        "RESTful API design and documentation with Swagger/OpenAPI.",
+        "Token-based secure authentication (JWT, OAuth 2.0).",
+        "Message queue systems using RabbitMQ for asynchronous processing.",
+        "Database optimization and migration workflows with SQL databases.",
+        "Integration with third-party payment gateways and webhooks."
+      ],
+      techStack: ["Java", "Spring Boot", "Spring Security", "MySQL", "RabbitMQ", "REST APIs"],
       bgGradient: "violet-gradient"
     },
     {
-      title: "Social Media Management & Branding",
-      category: "Branding & Socials",
-      description: "Managing organic social media presence alongside professional graphic and vector asset designs to cultivate an authoritative digital brand.",
+      title: "IT Infrastructure & System Engineering",
+      category: "Systems & Networking",
+      description: "Configuring and maintaining local and cloud environments, secure VPN tunnels, and office network infrastructure.",
       features: [
-        "Creative content calendars and engagement strategy (Facebook/Instagram/LinkedIn).",
-        "Brand identity designs: Calendars, diaries, packaging layouts, and company ID cards.",
-        "High-resolution vector assets: Banners, flyers, and flex designs.",
-        "Professional templates and layout creation using Illustrator and Photoshop."
+        "Local on-premises server setups running Linux (Ubuntu LTS).",
+        "Network routing and bandwidth management with MikroTik routers.",
+        "Secure virtual private networks (Tailscale, WireGuard) for remote access.",
+        "Automated local-to-cloud backup jobs using cron scripts.",
+        "Troubleshooting hardware, software, and systems performance issues."
       ],
-      techStack: ["Adobe Illustrator", "Photoshop", "Canva", "Organic Socials", "Branding Design"],
+      techStack: ["Linux", "Ubuntu Server", "MikroTik", "Tailscale", "Bash Scripting", "Cron Jobs"],
       bgGradient: "green-pink-gradient"
     }
   ];
@@ -159,13 +160,13 @@ const ServicesPage = () => {
         {/* Header Section */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <p className={`${styles.sectionSubText} !text-center`}>
-            All-In-One Tech & Marketing Engine
+            Software Engineering & Growth Marketing
           </p>
           <h2 className={`${styles.sectionHeadText} !text-center mt-2`}>
             Services Offered.
           </h2>
           <p className="text-secondary text-[17px] mt-4 leading-[28px]">
-            I bridge the gap between engineering and growth. Whether you need to build custom software, deploy it securely in the cloud, or launch high-converting ad campaigns to sell it, I have you covered.
+            I build robust backend systems, architect database solutions, configure cloud infrastructure, and scale traffic using targeted ad campaigns across Google, Meta, TikTok, and LinkedIn.
           </p>
         </div>
 
@@ -188,7 +189,7 @@ const ServicesPage = () => {
               Ready to execute your next project?
             </h3>
             <p className="text-secondary text-[15px]">
-              Let's build reliable software systems, scale your hosting, or boost traffic with optimized campaigns.
+              Let's build reliable software systems, deploy secure hosting, or scale traffic with optimized ad campaigns.
             </p>
           </div>
           <div className="flex flex-wrap gap-4">
