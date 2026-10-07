@@ -11,6 +11,8 @@ import ConnectWidget from "./components/ConnectWidget";
 import Certificates from "./components/Certificates";
 import Blog from "./components/Blog.jsx";
 import ServicesPage from "./components/ServicesPage";
+import OrderUpPrivacy from "./components/OrderUpPrivacy";
+import { useLocation } from "react-router-dom";
 
 const MainContent = () => (
   <>
@@ -32,19 +34,27 @@ const MainContent = () => (
   </>
 );
 
-const App = () => {
+const AppShell = () => {
+  const location = useLocation();
+  const isPrivacyPolicy = location.pathname === "/order-up/privacy";
+
   return (
-    <BrowserRouter>
-      <div className="relative z-0 bg-primary">
-        <Navbar />
+    <div className={`relative z-0 ${isPrivacyPolicy ? "privacy-page" : "bg-primary"}`}>
+      {!isPrivacyPolicy && <Navbar />}
         <Routes>
           <Route path="/" element={<MainContent />} />
           <Route path="/services" element={<ServicesPage />} />
+          <Route path="/order-up/privacy" element={<OrderUpPrivacy />} />
         </Routes>
-        <ConnectWidget />
-      </div>
-    </BrowserRouter>
+      {!isPrivacyPolicy && <ConnectWidget />}
+    </div>
   );
 };
+
+const App = () => (
+  <BrowserRouter>
+    <AppShell />
+  </BrowserRouter>
+);
 
 export default App;
